@@ -23,11 +23,11 @@ alg1: ${SOURCE} ${INCLUDES}
 	${CC} ${CFLAGS} ${SOURCE} -o ${TARGET} ${LDFLAGS}
 
 #depends on all of you source and header files
-alg2: ${SOURCE} ${INCLUDES}
+alg2: ${SOURCE2} ${INCLUDES}
 #this assumes you actually are linking all of the source files together
-	${CC} ${CFLAGS} ${SOURCE} -o ${TARGET} ${LDFLAGS}
+	${CC} ${CFLAGS} ${SOURCE2} -o ${TARGET2} ${LDFLAGS}
 
 #depends on all of you source and header files
-alg3: ${SOURCE} ${INCLUDES}
+alg3: ${SOURCE3} ${INCLUDES}
 #this assumes you actually are linking all of the source files together
-	${CC} ${CFLAGS} ${SOURCE} -o ${TARGET} ${LDFLAGS}
+	${CC} ${CFLAGS} ${SOURCE3} -o ${TARGET3} ${LDFLAGS}
