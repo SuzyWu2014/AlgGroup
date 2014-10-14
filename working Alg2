@@ -7,30 +7,33 @@
 int* GetVisibleLines(int* m,int* b, int n){
 	
 	int lines[n];
-	
+	for (int i = 0; i < n; ++i)
+	{
+		printf("%d   %d   \n",m[i],b[i] );
+	}		
 	for (int i = 0; i < n; ++i)
 	{
 		lines[i]=1;//assume line is visible
 	}
 
-	for (int i = 1; i < n-1; ++i)
+	for (int i = 1; i < n-1; i++)
 	{
 		printf("i=%d\n",i );
-		for (int j = 0; j < i; ++j)
+		for (int j = 0; j < i; j++)
 		{
 			printf("j=%d\n",j );
-			for (int k = i+1; k < n; ++k)
+			for (int k = i+1; k < n; k++)
 			{
 				printf("k=%d\n",k );
-				if(((b[k]-b[j])*m[i]+b[i]*(m[j]-m[k]))<(m[j]*(b[k]-b[j])+b[j]*(m[j]-m[k])))
+				if(((b[j]-b[k])*m[i]+b[i]*(m[k]-m[j]))<(m[j]*(b[j]-b[k])+b[j]*(m[k]-m[j])))
 				{
 					lines[i]=0;//not visible
 					printf("i=%d not visible\n",i );
-					break;
+				//	break;
 				}
 			}
-			if(lines[i]==0)
-				break;
+			///if(lines[i]==0)
+			//	break;
 			
 		}
 	}
@@ -65,15 +68,15 @@ int main(){
 		scanf("%d",&b[i]);
 	}	
 
-	int*  lines=GetVisibleLines(m,b,count);
-
+	int*  l=GetVisibleLines(m,b,count);
+	//GetVisibleLines(lines,count);
 	printf("Those are visible lines:\n");
 	for (int i = 0; i < count; ++i)
 	{
-		if(lines[i]==1)
-			printf("%d  \n", i);
+		//if(lines[i]==1)
+			printf("%d  \n", l[i]);
 	}
 
-
+	//FreeArray(lines,count);
 
 }
